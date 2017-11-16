@@ -1,0 +1,125 @@
+package com.anachuisalas.fastfood;
+
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.net.URLEncoder;
+import java.util.ArrayList;
+
+public class ListaRestaurants extends AppCompatActivity {
+    RecyclerView restaurantsRecyclerView;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_lista_restaurants);
+
+        restaurantsRecyclerView=(RecyclerView) findViewById(R.id.restaurantsRecyclerView);
+        restaurantsRecyclerView.setHasFixedSize(true);
+        restaurantsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        ArrayList<Restaurantes> datos = new ArrayList<Restaurantes>();
+
+        Restaurantes p1 = new Restaurantes("Pollos Copacabana", "Calle Comercio Nº 831, Zona Central","22406433");
+        datos.add(p1);
+        Restaurantes p2 = new Restaurantes("Brosso", "Av. 16 de Julio Nº 1495, El Prado","22317000");
+        datos.add(p2);
+        Restaurantes p3 = new Restaurantes("Hamburguesas Toby", "Av. Camacho esq. Calle Bueno","77774563");
+        datos.add(p3);
+        Restaurantes p4 = new Restaurantes("Joe Banana", "Av. 16 de Julio Nº 591","2313180");
+        datos.add(p4);
+        Restaurantes p5 = new Restaurantes("Pollos Cochabamba", "Calle Cochabamba Nro 125, lado transito","78867479");
+        datos.add(p5);
+        Restaurantes p6 = new Restaurantes("Dumbo", "Av. 16 de Julio, Casi Bueno","22313331");
+        datos.add(p6);
+        Restaurantes p7 = new Restaurantes("Chifa Box", "Sopocachi, Plaza Avaroa","22141702");
+        datos.add(p7);
+        Restaurantes p8 = new Restaurantes("Burguer King", "Av. Hernando Siles Calle 2","22796867");
+        datos.add(p8);
+
+
+        RestaurantAdapter adaptador = new RestaurantAdapter();
+        adaptador.colocarDatos(datos);
+
+
+        restaurantsRecyclerView.setAdapter(adaptador);
+
+        restaurantsRecyclerView.addOnItemTouchListener(
+                new RecyclerItemClickListener(this, restaurantsRecyclerView, new RecyclerItemClickListener.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int position) {
+                        String telephone = ((TextView) restaurantsRecyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.telefonoTextView)).getText().toString();
+                        String nombre = ((TextView) restaurantsRecyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.nombreTextView)).getText().toString();
+                        Toast.makeText(getApplicationContext(), nombre, Toast.LENGTH_SHORT).show();
+                        //solo para una posicion || toast nos muestra un mensaje en la pantalla baja
+                        if (position == 2) {
+                            Toast.makeText(getApplicationContext(), nombre, Toast.LENGTH_SHORT).show();
+                        }
+                        //crear un nuevo activity llamado InformacionPersona
+                        Intent i;
+
+                        if (position == 0) {
+                            i = new Intent(ListaRestaurants.this, InformacionRestaurant1.class);
+                            i.putExtra("nombre", nombre);
+                            startActivity(i);
+
+                        }
+                        if (position == 1) {
+                            i = new Intent(ListaRestaurants.this, InformacionRestaurant2.class);
+                            i.putExtra("nombre", nombre);
+                            startActivity(i);
+
+                        }
+                        if (position == 2) {
+                            i = new Intent(ListaRestaurants.this, InformacionRestaurant3.class);
+                            i.putExtra("nombre", nombre);
+                            startActivity(i);
+
+                        }
+                        if (position == 3) {
+                            i = new Intent(ListaRestaurants.this, InformacionRestaurant4.class);
+                            i.putExtra("nombre", nombre);
+                            startActivity(i);
+
+                        }
+                        if (position == 4) {
+                            i = new Intent(ListaRestaurants.this, InformacionRestaurant5.class);
+                            startActivity(i);
+
+                        }
+                        if (position == 5) {
+                            i = new Intent(ListaRestaurants.this, InformacionRestaurant6.class);
+                            startActivity(i);
+
+                        }
+                        if (position == 6) {
+                            i = new Intent(ListaRestaurants.this, InformacionRestaurant7.class);
+                            startActivity(i);
+
+                        }
+                        if (position == 7) {
+                            i = new Intent(ListaRestaurants.this, InformacionRestaurant8.class);
+                            startActivity(i);
+
+                        }
+
+                    }
+
+
+                    @Override
+                    public void onLongItemClick(View view, int position) {
+                        // do whatever
+                        String telefono = ((TextView) restaurantsRecyclerView.findViewHolderForAdapterPosition(position).itemView.findViewById(R.id.telefonoTextView)).getText().toString();
+                        Toast.makeText(getApplicationContext(), telefono, Toast.LENGTH_SHORT).show();
+                    }
+                }));
+
+}}
