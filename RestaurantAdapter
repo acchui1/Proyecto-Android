@@ -1,0 +1,69 @@
+package com.anachuisalas.fastfood;
+
+import android.view.ViewGroup;
+import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+
+
+public class RestaurantAdapter extends RecyclerView.Adapter<RestaurantAdapter.ViewHolder> {
+
+    private ArrayList<Restaurantes> datos; //guarda los datos
+
+    public RestaurantAdapter() {
+        datos = new ArrayList<Restaurantes>();
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_restaurant, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder holder, int position) {
+        //saca los datos uno por uno de la bolsa de datos para luego poner al item
+        Restaurantes p = datos.get(position);
+        holder.nombresTextView.setText(p.getNombre());
+        holder.apellidosTextView.setText(p.getUbicacion());
+        holder.telefonoTextView.setText(p.getTelefono());
+
+    }
+
+    @Override
+    public int getItemCount() {
+        //numero de items que queremos tener
+        return datos.size();
+    }
+
+    public void colocarDatos(ArrayList<Restaurantes> datos) {
+        this.datos = datos;
+        notifyDataSetChanged();
+    }
+
+    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+        //Colocar aqui todos los view del diseño
+        TextView nombresTextView;
+        TextView apellidosTextView;
+        TextView telefonoTextView;
+        ImageView iconoImageView;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+
+            nombresTextView = (TextView) itemView.findViewById(R.id.nombreTextView);
+            apellidosTextView = (TextView) itemView.findViewById(R.id.ubicacionTextView);
+            telefonoTextView = (TextView) itemView.findViewById(R.id.telefonoTextView);
+            iconoImageView=(ImageView) itemView.findViewById(R.id.iconoImageView);
+
+        }
+    }
+}
+
+
