@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#E0E0E0"
+    tools:context="com.anachuisalas.fastfood.MainActivity">
+    <TextView
+        android:id="@+id/txtTitulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bienvenidos a Fast Food"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:layout_margin="10dp"
+       />
+
+    <ImageView
+        android:id="@+id/imgUsuario"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        app:srcCompat="@drawable/ic_account_box_black_24dp"
+         />
+
+    <TextView
+        android:id="@+id/lblUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Usuario"
+        android:layout_margin="10dp"/>
+
+    <EditText
+        android:id="@+id/txtUsuario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingrese el usuario"
+        android:inputType="textPersonName"
+        android:layout_margin="5dp"/>
+
+    <TextView
+        android:id="@+id/lblContrasenhia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contraseña"
+        android:layout_margin="10dp"/>
+
+    <EditText
+        android:id="@+id/txtContrasenhia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:hint="Ingrese Contraseña"
+        android:layout_margin="5dp"
+        />
+
+
+    <Button
+        android:id="@+id/btn_ir_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restaurantes de Comida Rapida"
+        android:layout_margin="8dp"
+        android:textColor="#4A148C"
+        android:background="#D7CCC8"/>
+    <Button
+        android:id="@+id/btnFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Fotografía"
+        android:layout_margin="8dp"
+        android:textColor="#4A148C"
+        android:background="#D7CCC8"/>
+
+
+
+
+</LinearLayout>
