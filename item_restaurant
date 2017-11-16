@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="#E0E0E0"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/iconoImageView"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_restaurant_black_24dp"
+        />
+    <TextView
+        android:id="@+id/nombreTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="24sp"
+        android:textColor="#4A148C"
+        tools:text="Brosso" />
+    <TextView
+        android:id="@+id/ubicacionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textColor="#AB47BC"
+        tools:text="El Prado"/>
+    <TextView
+        android:id="@+id/telefonoTextView"
+        android:textColor="#AB47BC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        tools:text="77885566"/>
+
+</LinearLayout>
